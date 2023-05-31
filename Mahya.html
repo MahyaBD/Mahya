@@ -1,129 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahya for donation</title>
+    <title>Mahya for Blood Bonation</title>
 
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <link rel="stylesheet" href="Mahya.css">
+<!-- font awesome cdn link-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ 
+ <!-- custom css file link-->
+ <link rel="stylesheet" href="Mahya.css">
 
 </head>
 
 <body>
-    <!-- Header Start -->
+<!-- Header section starts -->
+<header class="header">
+    <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> Mahya </a>
 
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#case">Cases</a>
+        <a href="#">Appointment</a>
+        <a href="#footer">About us</a>
+        <button class="button" id="form-open">Login</button>
+    </nav>
 
-    <header class="header">
+    <div id="menu-btn" class="fas fa-bar"></div>
+</header>
+<!-- Header section ends -->
 
-        <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> Mahya </a>
-
-        <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#Cases">Cases</a>
-            <a href="#Appointment">Appointment</a>
-            <a href="#AboutUs">About us</a>
-
-        </nav>
-
-
-        <div id="menu-btn" class="fas fa-bars"></div>
-
-    </header>
-
-    <!-- Header End -->
-
-    <!-- Home Start -->
-    <div class="container">
-
-        <section class="home" id="home">
-
-            <div class="image">
-                <img src="d.jpg" alt="">
-            </div>
-
-
-            <div class="content">
-
-                <h3> You don’t have to be doctor to save a life</h3>
-            </div>
-
-
-
-        </section>
-
-
-        <!-- Home End -->
-
-
-        <!-- Icon Start -->
-
-        <section class="icons-container">
-
-            <div class="icons">
-                <i class="fas fa-procedures"></i>
-                <H3>15000+</H3>
-                <p>Patients</p>
-            </div>
-
-            <div class="icons">
-                <i class="fas fa-users"></i>
-                <H3>2000+</H3>
-                <p>Number of doner</p>
-            </div>
-            </secttion>
-            <!-- Icon End -->
-
-            <!-- Cases Section Starts -->
-
-            <section class="Cases" id="case">
-
-                <h1 class="heading"> Critical <span> Cases </span></h1>
-                <div class="box-container">
-
-                    <div class="box">
-                        <div class="image">
-                            <img src="blood-donor.jpg" alt="Blood Donor">
-                        </div>
-                        <div class="content">
-                            <div class="icon">
-                                <a href="#"> <i class="fas fa-calender"></i>1st may, 2023</a>
-                                <a href="#"> <i class="fas fa-user"></i>Alhabib Hospital</a>
-                            </div>
-                        </div>
-                        <h3>Nourah Alshammery</h3>
-                        <p>Here Defvnsivkmfsikvnmsflknv slk</p>
-                        <a href="#" class="btn">Learn More <span class="fas fa-chevron-right"></span></a>
-                    </div>
-
-                    <div class="box">
-                        <div class="image">
-                            <img src="blood-donor (1).jpg" alt="Blood Donor">
-                        </div>
-                        <div class="content">
-                            <div class="icon">
-                                <a href="#"> <i class="fas fa-calender"></i>1st may, 2023</a>
-                                <a href="#"> <i class="fas fa-user"></i>Alhabib Hospital</a>
-                            </div>
-                        </div>
-                        <h3>Osamah Alajmi</h3>
-                        <p>Here Defvnsivkmfsikvnmsflknv slk</p>
-                        <a href="#" class="btn">Learn More <span class="fas fa-chevron-right"></span></a>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Cases Section Ends -->
+<div class="container"> 
+<!-- Home section starts -->
+<section class="home" id="home">    
+    <div class="image">
+       <img src="d.jpg" alt="">
     </div>
 
+    <div class="content">
+        <h3> You don’t have to be doctor to save a life</h3> 
+    </div>
 
-    <script src="Mahya.js"></script>
+    <div class="form_container">
+        <i class="fas fa-times form_close"></i>
+        <!-- Login form-->
+        <div class="form login_form">
+            <form action="#">
+                <h2>Login</h2>
+
+                <div class="input_box">
+                    <input type="email" placeholder="Enter your email" required>
+                    <i class="fas fa-envelope email"></i>
+                </div>
+                <div class="input_box">
+                    <input type="password" placeholder="Enter your password" required>
+                    <i class="fas fa-lock password"></i>
+                    <i class="fas fa-eye-slash pw_hide"></i>
+                </div>
+
+                <div class="option_field">
+                    <span class="checkbox">
+                      <input type="checkbox" id="check">
+                      <label for="check">Remember me</label>
+                    </span>
+                    <a href="#" class="forgot_pw">Forgot password?</a>
+                </div>
+
+                <button class="button">Login Now</button>
+
+                <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+            </form>
+        </div>
+
+        <!-- signup form-->
+        <div class="form signup_form">
+            <form action="#">
+                <h2>Signup</h2>
+
+                <div class="input_box">
+                    <input type="email" placeholder="Enter your email" required>
+                    <i class="fas fa-envelope email"></i>
+                </div>
+                <div class="input_box">
+                    <input type="password" placeholder="Create password" required>
+                    <i class="fas fa-lock password"></i>
+                    <i class="fas fa-eye-slash pw_hide"></i>
+                </div>
+                <div class="input_box">
+                    <input type="password" placeholder="Confirm your password" required>
+                    <i class="fas fa-lock password"></i>
+                    <i class="fas fa-eye-slash pw_hide"></i>
+                </div>
+
+                
+                <button class="button">Signup Now</button>
+
+                <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Home section ends -->
+
+
+<!-- Icon section starts -->
+<section class="icons-container" id="icons_container">
+
+    <div class="icons">
+        <i class="fas fa-users"></i>
+        <h3>15000+</h3>
+        <p>Patients</p>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-plus-square" aria-hidden="true"></i>
+        <h3>2000+</h3>
+        <p>Number of doners</p>
+    </div>
+</section>
+<!-- Icon section ends -->
+
+ 
+<!-- Cases Section Starts -->
+<section class="Cases" id="case">
+
+    <h1 class="heading"> Critical <span> Cases </span></h1>
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src="blood-donor.jpg" alt="Blood Donor">  
+            </div>
+            <div class="content">
+                <div class="icon">
+                    <a href="#"> <i class="fas fa-calender"></i>1st may, 2023</a>
+                    <a href="#"> <i class="fas fa-user"></i>Alhabib Hospital</a>
+                </div>
+                <h3>Nourah Alshammery</h3>
+                <p>Here Defvnsivkmfsikvnmsflknv slk</p>
+                <a href="#" class="btn">Learn More <span class="fas fa-chevron-right"></span></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="blood-donor2.jpeg" alt="Blood Donor">  
+            </div>
+            <div class="content">
+                <div class="icon">
+                <a href="#"> <i class="fas fa-calender"></i>1st may, 2023</a>
+                <a href="#"> <i class="fas fa-user"></i>Alhabib Hospital</a>
+                </div>
+                <h3>Osamah Alajmi</h3>
+                <p>Here Defvnsivkmfsikvnmsflknv slk</p>
+                <a href="#" class="btn">Learn More <span class="fas fa-chevron-right"></span></a>    
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Cases Section Ends -->
+
+
+<!--footer section starts-->
+<section class="footer" id="footer">
+    <div class="box-container">
+        <div class="box">
+        <h3>Quich links</h3>
+        <a href="#home"> <i class="fas fa-chevron-right"> </i> Home </a>
+        <a href="#case"> <i class="fas fa-chevron-right"> </i> Cases </a>
+        <a href="#"> <i class="fas fa-chevron-right"> </i> Appointment </a>
+        <a href="#footer"> <i class="fas fa-chevron-right"> </i> About Us </a>
+      </div> 
+
+      <div class="box">
+        <h3>Contact info</h3>
+        <a href="#"> <i class="fas fa-phone"> </i> +123-456-789 </a>
+        <a href="#"> <i class="fas fa-phone"> </i> +111-222-333 </a>
+        <a href="#"> <i class="fas fa-envelope"> </i> Mahya@gmail.com </a>
+        <a href="#"> <i class="fas fa-map-marker-alt"> </i> Riyadh, Saudi Arabia - 12211 </a>
+      </div> 
+
+      <div class="box">
+        <h3>Follow us</h3>
+        <a href="#"> <i class="fa fa-facebook" > </i> facebook </a>
+        <a href="#"> <i class="fa fa-twitter" > </i> twitter </a>
+        <a href="#"> <i class="fa fa-instagram"> </i> instagram </a>
+        <a href="#"> <i class="fa fa-linkedin"> </i> linkedin </a>
+        <a href="#"> <i class="fa fa-pinterest"> </i> pinterest </a>
+      </div> 
+    </div>
+
+    <div class="credit"> Created by <span> Mehaf Allazzam, Danah Al-Rasheed, Manar Alqabbani and Leen Alaboudi</span> | all rights reserved</div> 
+</section>
+<!--footer section ends-->
+
+</div>
+
+<!-- custom js file link -->
+<script src="Mahya.js"></script>
 
 </body>
-
 </html>
