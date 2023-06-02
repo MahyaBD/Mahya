@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahya for Blood Bonation</title>
+
+<!-- font awesome cdn link-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+ <!-- custom css file link-->
+ <link rel="stylesheet" href="Mahya.css">
+
+</head>
+
+<body>
+<!-- Header section starts -->
+<header class="header">
+    <a href="Mahya.html" class="logo"> <i class="fas fa-heartbeat"></i> Mahya </a>
+
+    <nav class="navbar">
+        <a href="Mahya.html">Home</a>
+        <a href="#footer">About us</a>
+        <button class="button" id="form-open">Login</button>
+    </nav>
+
+    <div id="menu-btn" class="fas fa-bar"></div>
+</header>
+<!-- Header section ends -->
+
+<div class="container">
+    <!-- Home section starts -->
+    <section class="home" id="home">
+        <div class="form_container">
+            <i class="fas fa-times form_close"></i>
+            <!-- Login form-->
+            <div class="form login_form">
+                <form action="#">
+                    <h2>Login</h2>
+
+                    <div class="input_box">
+                        <input type="email" placeholder="Enter your email" required>
+                        <i class="fas fa-envelope email"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Enter your password" required>
+                        <i class="fas fa-lock password"></i>
+                        <i class="fas fa-eye-slash pw_hide"></i>
+                    </div>
+
+                    <div class="option_field">
+                        <span class="checkbox">
+                            <input type="checkbox" id="check">
+                            <label for="check">Remember me</label>
+                        </span>
+                        <a href="#" class="forgot_pw">Forgot password?</a>
+                    </div>
+
+                    <button class="button">Login Now</button>
+
+                    <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+                </form>
+            </div>
+
+            <!-- signup form-->
+            <div class="form signup_form">
+                <form action="#">
+                    <h2>Signup</h2>
+
+                    <div class="input_box">
+                        <input type="email" placeholder="Enter your email" required>
+                        <i class="fas fa-envelope email"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Create password" required>
+                        <i class="fas fa-lock password"></i>
+                        <i class="fas fa-eye-slash pw_hide"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Confirm your password" required>
+                        <i class="fas fa-lock password"></i>
+                        <i class="fas fa-eye-slash pw_hide"></i>
+                    </div>
+                    <button class="button">Signup Now</button>
+
+                    <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Home section ends -->
+
+    <!-- ADD Case Section Starts -->
+    <section class="Cases" id="case">
+        <h1 class="heading"> Add <span> Case </span></h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <form action="#">
+
+                    <div class="input_box">
+                        <input type="text" placeholder="Enter patient first name" required>
+                        <i class="fa fa-user user" aria-hidden="true"></i>
+                        
+                    </div>
+                    <div class="input_box">
+                        <input type="text" placeholder="Enter patient last name" required>
+                        <i class="fa fa-user user" aria-hidden="true"></i>
+                    </div> 
+                    <div class="input_box">
+                        <input type="text" placeholder="Enter patient file number" required>
+                        <i class="fa fa-address-card file" aria-hidden="true"></i>
+                        
+                    </div>   
+                    <div class="input_box">
+                        <label>Blood Type:</label>
+                        <select>
+                            <option>A-</option>
+                            <option>A+</option>
+                            <option>B-</option>
+                            <option>B+</option>
+                            <option>AB-</option>
+                            <option>AB+</option>
+                            <option>O-</option>
+                            <option>O+</option>
+                        </select>
+                    </div>   
+                    <div class="input_box">
+                        <label>Hospital:</label>
+                        <select>
+                            <option>Al-Habib Hospital</option>
+                            <option>Al-Takhassousi Hospital</option>
+                            <option>Dallah Hospital</option>
+                            <option>King Fahad Hospital</option>
+                        </select>
+                    </div>
+                    <input type="submit" class="btn" id="booking-button" value="Add ">
+
+                </form>
+                
+            </div>
+        </div>
+        
+    
+    </section>
+    <!-- Cases Section Ends -->
+
+
+    <!--footer section starts-->
+    <section class="footer" id="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Quich links</h3>
+                <a href="#home"> <i class="fas fa-chevron-right"> </i> Home </a>
+                <a href="#footer"> <i class="fas fa-chevron-right"> </i> About Us </a>
+            </div>
+
+            <div class="box">
+                <h3>Contact info</h3>
+                <a href="#"> <i class="fas fa-phone"> </i> +123-456-789 </a>
+                <a href="#"> <i class="fas fa-phone"> </i> +111-222-333 </a>
+                <a href="mailto:MahyaBDW@gmail.com"> <i class="fas fa-envelope"> </i> MahyaBDW@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"> </i> Riyadh, Saudi Arabia - 12211 </a>
+            </div>
+
+            <div class="box">
+                <h3>Follow us</h3>
+                <a href="#"> <i class="fa fa-facebook" > </i> facebook </a>
+                <a href="#"> <i class="fa fa-twitter" > </i> twitter </a>
+                <a href="#"> <i class="fa fa-instagram"> </i> instagram </a>
+                <a href="#"> <i class="fa fa-linkedin"> </i> linkedin </a>
+                <a href="#"> <i class="fa fa-pinterest"> </i> pinterest </a>
+            </div>
+        </div>
+        <div class="credit"> Created by <span> Mehaf Allazzam, Danah Al-Rasheed, Manar Alqabbani and Leen Alaboudi</span> | all rights reserved</div>
+    </section>
+    <!--footer section ends-->
+
+</div>
+
+<!-- custom js file link -->
+<script src="Mahya.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
