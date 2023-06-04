@@ -34,9 +34,9 @@ section{
     padding: 2rem 9%;
 }
 
-section:nth-child(even){
+/* section:nth-child(even){
     background: #ffffff;
-}
+} */
 
 /* Header */
 .header{
@@ -87,12 +87,11 @@ header .logo i{
 
 /* Form */  
 .form_container{
-    position: absolute;
+    position: fixed;
     max-width: 320px;
     width: 100%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.2);
     z-index: 101;
     background: #fff;
     padding: 25px;
@@ -106,8 +105,7 @@ header .logo i{
 .container.show .form_container{
     opacity: 1;
     pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
-
+    transform: translate(-50%, -50%) scale(0.9);
 }
 .signup_form{
     display: none;
@@ -359,6 +357,12 @@ img{
     text-transform: uppercase;
     color: var(--Red); 
 }
+.subhead{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
 
 /* Cases Section */
 .Cases .box-container{
@@ -418,6 +422,10 @@ img{
 }
 
 /* Footer */
+.footer{
+    margin-top: 10%;
+    background-color: #821010;
+}
 .footer .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
@@ -425,18 +433,18 @@ img{
 }
 .footer .box-container .box h3{
     font-size: 2.5rem;
-    color: var(--black);
+    color: #ffff;
     padding: 1rem 0;
 }
 .footer .box-container .box a{
     display: block;
     font-size: 1.5rem;
-    color: var(--light-color);
+    color: #ffff;
     padding: 1rem 0;
 }
 .footer .box-container .box a i{
     padding-right: .5rem;
-    color: var(--Red);
+    color: var(--light-color);
 }
 .footer .box-container .box a:hover i{
     padding-right: 2rem;
@@ -451,7 +459,7 @@ img{
   border-top: .1rem solid rgba(0, 0, 0, .1);
 }
 .footer .credit span{
-    color: var(--Red);
+    color: #fff;
 }
 
 
@@ -519,6 +527,10 @@ img{
 }
 @media (max-width:450px){
     html{
-        font-size: 50%; 
+        font-size: 40%; 
+    }
+    .container.show .form_container{
+
+        transform: translate(-50%, -50%) scale(0.7);
     }
 }
