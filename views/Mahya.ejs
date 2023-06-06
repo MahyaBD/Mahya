@@ -16,253 +16,332 @@
 </head>
 
 <body>
-    <!-- Header section starts -->
-    <header class="header">
-        <a href="/" class="logo"> <i class="fas fa-heartbeat"></i> Mahya </a>
+    <% if (success.code==404) { %>
+        <script>
+            alert("Error: User does not exist");
+        </script>
+        <%}%>
+            <% if (success.code==0) { %>
+                <script>
+                    alert("Success: You have been logged in successfully");
+                </script>
+                <%}%>
+                    <% if (success.code==100) { %>
+                        <script>
+                            alert("Success: You have been signed up");
+                        </script>
+                        <%}%>
+                            <% if (success.code==505) { %>
+                                <script>
+                                    alert("Error: Unable to signup");
+                                </script>
+                                <%}%>
+                                    <% if (success.code==20) { %>
+                                        <script>
+                                            alert("Success: Case added successfully");
+                                        </script>
+                                        <%}%>
+                                            <!-- Header section starts -->
+                                            <header class="header">
+                                                <a href="/" class="logo"> <i class="fas fa-heartbeat"></i> Mahya </a>
 
-        <nav class="navbar">
-            <a href="/">Home</a>
-            <a href="#home">Cases</a>
-            <!-- <a href="#">Appointment</a> -->
-            <a href="#footer">About us</a>
-            <% if(!user) { %>
-                <button class="button" id="form-open">Login</button>
-                <%} else { %>
-                    <form action="/logout" method="POST">
-                        <button class="button">Logout</button>
-                    </form>
-                    <%} %>
-        </nav>
+                                                <nav class="navbar">
+                                                    <a href="/">Home</a>
+                                                    <a href="#case">Cases</a>
+                                                    <!-- <a href="#">Appointment</a> -->
+                                                    <a href="#footer">About us</a>
+                                                    <% if(!user) { %>
+                                                        <button class="button" id="form-open">Login</button>
+                                                        <%} else { %>
+                                                            <form action="/logout" method="POST">
+                                                                <button class="button">Logout</button>
+                                                            </form>
+                                                            <%} %>
+                                                </nav>
 
-        <div id="menu-btn" class="fas fa-bar"></div>
-    </header>
-    <!-- Header section ends -->
+                                                <div id="menu-btn" class="fas fa-bar"></div>
+                                            </header>
+                                            <!-- Header section ends -->
 
-    <div class="container">
-        <!-- Home section starts -->
-        <section class="home" id="home">
-            <div class="image">
-                <img src="d.jpg" alt="">
-            </div>
+                                            <div class="container">
+                                                <!-- Home section starts -->
+                                                <section class="home" id="home">
+                                                    <div class="image">
+                                                        <img src="d.jpg" alt="">
+                                                    </div>
 
-            <div class="content">
-                <h3> You don’t have to be doctor to save a life</h3>
-            </div>
+                                                    <div class="content">
+                                                        <h3> You don’t have to be doctor to save a life</h3>
+                                                    </div>
 
-            <div class="form_container">
-                <i class="fas fa-times form_close"></i>
-                <!-- Login form-->
-                <div class="form login_form">
-                    <form action="/login" method="post">
-                        <h2>Login</h2>
+                                                    <div class="form_container">
+                                                        <i class="fas fa-times form_close"></i>
+                                                        <!-- Login form-->
+                                                        <div class="form login_form">
+                                                            <form action="/login" method="post">
+                                                                <h2>Login</h2>
 
-                        <div class="input_box">
-                            <input type="email" name="email" placeholder="Enter your email" required>
-                            <i class="fas fa-envelope email"></i>
-                        </div>
-                        <div class="input_box">
-                            <input type="password" name="password" placeholder="Enter your password" required>
-                            <i class="fas fa-lock password"></i>
-                            <i class="fas fa-eye-slash pw_hide"></i>
-                        </div>
+                                                                <div class="input_box">
+                                                                    <input type="email" name="email"
+                                                                        placeholder="Enter your email" required>
+                                                                    <i class="fas fa-envelope email"></i>
+                                                                </div>
+                                                                <div class="input_box">
+                                                                    <input type="password" name="password"
+                                                                        placeholder="Enter your password" required>
+                                                                    <i class="fas fa-lock password"></i>
+                                                                    <i class="fas fa-eye-slash pw_hide"></i>
+                                                                </div>
 
-                        <div class="option_field">
-                            <span class="checkbox">
-                                <input type="checkbox" id="check">
-                                <label for="check">Remember me</label>
-                            </span>
-                            <a href="#" class="forgot_pw">Forgot password?</a>
-                        </div>
+                                                                <div class="option_field">
+                                                                    <span class="checkbox">
+                                                                        <input type="checkbox" id="check">
+                                                                        <label for="check">Remember me</label>
+                                                                    </span>
+                                                                    <a href="#" class="forgot_pw">Forgot password?</a>
+                                                                </div>
 
-                        <input type="submit" class="button" value="Login Now" />
+                                                                <input type="submit" class="button" value="Login Now" />
 
-                        <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
-                    </form>
-                </div>
+                                                                <div class="login_signup">Don't have an account? <a
+                                                                        href="#" id="signup">Signup</a></div>
+                                                            </form>
+                                                        </div>
 
-                <!-- signup form-->
-                <div class="form signup_form">
-                    <form action="/signup" method="post">
-                        <h2>Signup</h2>
+                                                        <!-- signup form-->
+                                                        <div class="form signup_form">
+                                                            <form action="/signup" method="post">
+                                                                <h2>Signup</h2>
 
-                        <div class="input_box">
-                            <input type="email" name="email" placeholder="Enter your email" required>
-                            <i class="fas fa-envelope email"></i>
-                        </div>
-                        <div class="input_box">
-                            <input type="password" name="password" placeholder="Create password" required>
-                            <i class="fas fa-lock password"></i>
-                            <i class="fas fa-eye-slash pw_hide"></i>
-                        </div>
-                        <div class="input_box">
-                            <input type="password" name="confirmPassword" placeholder="Confirm your password" required>
-                            <i class="fas fa-lock password"></i>
-                            <i class="fas fa-eye-slash pw_hide"></i>
-                        </div>
-
-
-                        <input class="button" type="submit" value="Signup Now"></input>
-
-                        <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
-                    </form>
-                </div>
-            </div>
-        </section>
-        <!-- Home section ends -->
-
-
-        <!-- Icon section starts -->
-        <section class="icons-container" id="icons_container">
-
-            <div class="icons">
-                <i class="fas fa-users"></i>
-                <h3>15000+</h3>
-                <p>Patients</p>
-            </div>
-
-            <div class="icons">
-                <i class="fas fa-plus-square" aria-hidden="true"></i>
-                <h3>2000+</h3>
-                <p>Number of doners</p>
-            </div>
-        </section>
-        <!-- Icon section ends -->
-
-
-        <!-- Cases Section Starts -->
-        <section class="Cases" id="case">
-
-            <div class="subhead">
-                <h1 class="heading"> Critical <span> Cases </span></h1>
-                <a href="AddCase.html" id="Add-Case-button" class="btn">Add Case<span class='fa fa-plus'></span></a>
-            </div>
-
-            <div class="box-container">
-
-                <div class="box">
-                    <div class="image">
-                        <img src="blood-donor.jpg" alt="Blood Donor">
-                    </div>
-                    <div class="content">
-                        <div class="icon">
-                            <a href="#"> <i class="fas fa-calender"></i>1st may, 2023</a>
-                            <a href="https://goo.gl/maps/fK6RMpYxpcNhAZCQ7?coh=178571&entry=tt"> <i
-                                    class="fa fa-h-square" aria-hidden="true"></i>Hospital name</a>
-                        </div>
-                        <h3>Patient name</h3>
-                        <h6>required blood type:</h6>
-                        <p>case description summary</p>
-                        <a href="Case.html" class="btn">Learn More <span class="fas fa-chevron-right"></span></a>
-                    </div>
-                </div>
-
-                <div class="box">
-                    <div class="image">
-                        <img src="blood-donor2.jpeg" alt="Blood Donor">
-                    </div>
-                    <div class="content">
-                        <div class="icon">
-                            <a href="#"> <i class="fas fa-calender"></i>1st may, 2023</a>
-                            <a href="https://goo.gl/maps/fK6RMpYxpcNhAZCQ7?coh=178571&entry=tt"> <i
-                                    class="fa fa-h-square" aria-hidden="true"></i>Hospital name</a>
-                        </div>
-                        <h3>Patient name</h3>
-                        <h6>required blood type:</h6>
-                        <p>case description summary</p>
-                        <a href="Case.html" class="btn">Learn More <span class="fas fa-chevron-right"></span></a>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="image">
-                        <img src="blood-donor2.jpeg" alt="Blood Donor">
-                    </div>
-                    <div class="content">
-                        <div class="icon">
-                            <a href="#"> <i class="fas fa-calender"></i>1st may, 2023</a>
-                            <a href="https://goo.gl/maps/fK6RMpYxpcNhAZCQ7?coh=178571&entry=tt"> <i
-                                    class="fa fa-h-square" aria-hidden="true"></i>Hospital name</a>
-                        </div>
-                        <h3>Patient name</h3>
-                        <h6>required blood type:</h6>
-                        <p>case description summary</p>
-                        <a href="Case.html" class="btn">Learn More <span class="fas fa-chevron-right"></span></a>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="image">
-                        <img src="blood-donor2.jpeg" alt="Blood Donor">
-                    </div>
-                    <div class="content">
-                        <div class="icon">
-                            <a href="#"> <i class="fas fa-calender"></i>1st may, 2023</a>
-                            <a href="https://goo.gl/maps/fK6RMpYxpcNhAZCQ7?coh=178571&entry=tt"> <i
-                                    class="fa fa-h-square" aria-hidden="true"></i>Hospital name</a>
-                        </div>
-                        <h3>Patient name</h3>
-                        <h6>required blood type:</h6>
-                        <p>case description summary</p>
-                        <a href="Case.html" class="btn">Learn More <span class="fas fa-chevron-right"></span></a>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="image">
-                        <img src="blood-donor.jpg" alt="Blood Donor">
-                    </div>
-                    <div class="content">
-                        <div class="icon">
-                            <a href="#"> <i class="fas fa-calender"></i>1st may, 2023</a>
-                            <a href="https://goo.gl/maps/fK6RMpYxpcNhAZCQ7?coh=178571&entry=tt"> <i
-                                    class="fa fa-h-square" aria-hidden="true"></i>Hospital name</a>
-                        </div>
-                        <h3>Patient name</h3>
-                        <h6>required blood type:</h6>
-                        <p>case description summary</p>
-                        <a href="Case.html" class="btn">Learn More <span class="fas fa-chevron-right"></span></a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- Cases Section Ends -->
+                                                                <div class="input_box">
+                                                                    <input type="email" name="email"
+                                                                        placeholder="Enter your email" required>
+                                                                    <i class="fas fa-envelope email"></i>
+                                                                </div>
+                                                                <div class="input_box">
+                                                                    <input type="password" name="password"
+                                                                        placeholder="Create password" required>
+                                                                    <i class="fas fa-lock password"></i>
+                                                                    <i class="fas fa-eye-slash pw_hide"></i>
+                                                                </div>
+                                                                <div class="input_box">
+                                                                    <input type="password" name="confirmPassword"
+                                                                        placeholder="Confirm your password" required>
+                                                                    <i class="fas fa-lock password"></i>
+                                                                    <i class="fas fa-eye-slash pw_hide"></i>
+                                                                </div>
 
 
-        <!--footer section starts-->
-        <section class="footer" id="footer">
-            <div class="box-container">
-                <div class="box">
-                    <h3>Quich links</h3>
-                    <a href="#home"> <i class="fas fa-chevron-right"> </i> Home </a>
-                    <a href="#case"> <i class="fas fa-chevron-right"> </i> Cases </a>
-                    <a href="#footer"> <i class="fas fa-chevron-right"> </i> About Us </a>
-                </div>
+                                                                <input class="button" type="submit"
+                                                                    value="Signup Now"></input>
 
-                <div class="box">
-                    <h3>Contact info</h3>
-                    <a href="#"> <i class="fas fa-phone"> </i> +123-456-789 </a>
-                    <a href="#"> <i class="fas fa-phone"> </i> +111-222-333 </a>
-                    <a href="mailto:MahyaBDW@gmail.com"> <i class="fas fa-envelope"> </i> MahyaBDW@gmail.com </a>
-                    <a href="#"> <i class="fas fa-map-marker-alt"> </i> Riyadh, Saudi Arabia - 12211 </a>
-                </div>
+                                                                <div class="login_signup">Already have an account? <a
+                                                                        href="#" id="login">Login</a></div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <!-- Home section ends -->
 
-                <div class="box">
-                    <h3>Follow us</h3>
-                    <a href="#"> <i class="fa fa-facebook"> </i> facebook </a>
-                    <a href="#"> <i class="fa fa-twitter"> </i> twitter </a>
-                    <a href="#"> <i class="fa fa-instagram"> </i> instagram </a>
-                    <a href="#"> <i class="fa fa-linkedin"> </i> linkedin </a>
-                </div>
-            </div>
 
-            <div class="credit"> Created by <span> Mehaf Allazzam, Danah Al-Rasheed, Manar Alqabbani and Leen
-                    Alaboudi</span> | all rights reserved</div>
-        </section>
-        <!--footer section ends-->
+                                                <!-- Icon section starts -->
+                                                <section class="icons-container" id="icons_container">
 
-    </div>
+                                                    <div class="icons">
+                                                        <i class="fas fa-users"></i>
+                                                        <h3>15000+</h3>
+                                                        <p>Patients</p>
+                                                    </div>
 
-    <!-- custom js file link -->
-    <script src="Mahya.js"></script>
+                                                    <div class="icons">
+                                                        <i class="fas fa-plus-square" aria-hidden="true"></i>
+                                                        <h3>2000+</h3>
+                                                        <p>Number of doners</p>
+                                                    </div>
+                                                </section>
+                                                <!-- Icon section ends -->
 
+
+                                                <!-- Cases Section Starts -->
+                                                <section class="Cases" id="case">
+
+                                                    <div class="subhead">
+                                                        <h1 class="heading"> Critical <span> Cases </span></h1>
+                                                        <% if(user) { %>
+                                                            <a href="/addcase" id="Add-Case-button" class="btn">Add
+                                                                Case<span class='fa fa-plus'></span></a>
+                                                            <%} %>
+                                                    </div>
+
+                                                    <div class="box-container">
+                                                        <% if(cases !=undefined) { for (var i=0; i < cases.length; i++)
+                                                            { %>
+                                                            <div class="box">
+                                                                <div class="image">
+                                                                    <img src="blood-donor.jpg" alt="Blood Donor">
+                                                                </div>
+                                                                <div class="content">
+                                                                    <div class="icon">
+                                                                        <!-- <a href="#"> <i class="fas fa-calender"></i>1st
+                                                                            may, 2023</a> -->
+                                                                        <a
+                                                                            href="https://goo.gl/maps/fK6RMpYxpcNhAZCQ7?coh=178571&entry=tt">
+                                                                            <i class="fa fa-h-square"
+                                                                                aria-hidden="true"></i>
+                                                                            <%= cases[i].hospital %>
+                                                                        </a>
+                                                                    </div>
+                                                                    <h3>
+                                                                        <%= cases[i].firstName%>
+                                                                            <%= cases[i].lastName %>
+                                                                    </h3>
+                                                                    <h6>
+                                                                        <%= cases[i].bloodGroup %>
+                                                                    </h6>
+                                                                    <p>
+                                                                        <%= cases[i].description %>
+                                                                    </p>
+                                                                    <a href="/cases/<%=cases[i]._id %>"
+                                                                        class="btn">Learn More <span
+                                                                            class="fas fa-chevron-right"></span></a>
+                                                                </div>
+                                                            </div>
+                                                            <%}}else {%>
+
+                                                                <div class="box">
+                                                                    <div class="image">
+                                                                        <img src="blood-donor2.jpeg" alt="Blood Donor">
+                                                                    </div>
+                                                                    <div class="content">
+                                                                        <div class="icon">
+                                                                            <!-- <a href="#"> <i
+                                                                                    class="fas fa-calender"></i>1st may,
+                                                                                2023</a>  -->
+                                                                            <a href="https://goo.gl/maps/fK6RMpYxpcNhAZCQ7?coh=178571&entry=tt">
+                                                                                <i class="fa fa-h-square"
+                                                                                    aria-hidden="true"></i>Hospital
+                                                                                name</a>
+                                                                        </div>
+                                                                        <h3>Patient name</h3>
+                                                                        <h6>required blood type:</h6>
+                                                                        <p>case description summary</p>
+                                                                        <a href="/cases" class="btn">Learn More <span
+                                                                                class="fas fa-chevron-right"></span></a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="image">
+                                                                        <img src="blood-donor2.jpeg" alt="Blood Donor">
+                                                                    </div>
+                                                                    <div class="content">
+                                                                        <div class="icon">
+                                                                            <!-- <a href="#"> <i
+                                                                                    class="fas fa-calender"></i>1st may,
+                                                                                2023</a> -->
+                                                                            <a href="https://goo.gl/maps/fK6RMpYxpcNhAZCQ7?coh=178571&entry=tt">
+                                                                                <i class="fa fa-h-square"
+                                                                                    aria-hidden="true"></i>Hospital name</a>
+                                                                        </div>
+                                                                        <h3>Patient name</h3>
+                                                                        <h6>required blood type:</h6>
+                                                                        <p>case description summary</p>
+                                                                        <a href="/cases" class="btn">Learn More <span
+                                                                                class="fas fa-chevron-right"></span></a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="image">
+                                                                        <img src="blood-donor2.jpeg" alt="Blood Donor">
+                                                                    </div>
+                                                                    <div class="content">
+                                                                        <div class="icon">
+                                                                            <!-- <a href="#"> <i
+                                                                                    class="fas fa-calender"></i>1st may,
+                                                                                2023</a> -->
+                                                                            <a href="https://goo.gl/maps/fK6RMpYxpcNhAZCQ7?coh=178571&entry=tt">
+                                                                                
+                                                                                <i class="fa fa-h-square"
+                                                                                    aria-hidden="true"></i>Hospital name</a>
+                                                                                
+                                                                        </div>
+                                                                        <h3>Patient name</h3>
+                                                                        <h6>required blood type:</h6>
+                                                                        <p>case description summary</p>
+                                                                        <a href="/cases" class="btn">Learn More <span
+                                                                                class="fas fa-chevron-right"></span></a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box">
+                                                                    <div class="image">
+                                                                        <img src="blood-donor.jpg" alt="Blood Donor">
+                                                                    </div>
+                                                                    <div class="content">
+                                                                        <div class="icon">
+                                                                            <!-- <a href="#"> <i
+                                                                                    class="fas fa-calender"></i>1st may,
+                                                                                2023</a> -->
+                                                                            <a href="https://goo.gl/maps/fK6RMpYxpcNhAZCQ7?coh=178571&entry=tt">
+                                                                                
+                                                                                <i class="fa fa-h-square"
+                                                                                    aria-hidden="true"></i>Hospital name</a>
+                                                                                
+                                                                        </div>
+                                                                        <h3>Patient name</h3>
+                                                                        <h6>required blood type:</h6>
+                                                                        <p>case description summary</p>
+                                                                        <a href="/cases" class="btn">Learn More <span
+                                                                                class="fas fa-chevron-right"></span></a>
+                                                                    </div>
+                                                                </div>
+                                                                <%}%>
+                                                    </div>
+                                                </section>
+                                                <!-- Cases Section Ends -->
+
+
+                                                <!--footer section starts-->
+                                                <section class="footer" id="footer">
+                                                    <div class="box-container">
+                                                        <div class="box">
+                                                            <h3>Quich links</h3>
+                                                            <a href="#home"> <i class="fas fa-chevron-right"> </i> Home
+                                                            </a>
+                                                            <a href="#case"> <i class="fas fa-chevron-right"> </i> Cases
+                                                            </a>
+                                                            <a href="#footer"> <i class="fas fa-chevron-right"> </i>
+                                                                About Us </a>
+                                                        </div>
+
+                                                        <div class="box">
+                                                            <h3>Contact info</h3>
+                                                            <a href="#"> <i class="fas fa-phone"> </i> +123-456-789 </a>
+                                                            <a href="#"> <i class="fas fa-phone"> </i> +111-222-333 </a>
+                                                            <a href="mailto:MahyaBDW@gmail.com"> <i
+                                                                    class="fas fa-envelope"> </i> MahyaBDW@gmail.com
+                                                            </a>
+                                                            <a href="#"> <i class="fas fa-map-marker-alt"> </i> Riyadh,
+                                                                Saudi Arabia - 12211 </a>
+                                                        </div>
+
+                                                        <div class="box">
+                                                            <h3>Follow us</h3>
+                                                            <a href="#"> <i class="fa fa-facebook"> </i> facebook </a>
+                                                            <a href="#"> <i class="fa fa-twitter"> </i> twitter </a>
+                                                            <a href="#"> <i class="fa fa-instagram"> </i> instagram </a>
+                                                            <a href="#"> <i class="fa fa-linkedin"> </i> linkedin </a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="credit"> Created by <span> Mehaf Allazzam, Danah
+                                                            Al-Rasheed, Manar Alqabbani and Leen
+                                                            Alaboudi</span> | all rights reserved</div>
+                                                </section>
+                                                <!--footer section ends-->
+
+                                            </div>
+
+                                            <!-- custom js file link -->
+                                            <script src="Mahya.js"></script>
 </body>
 
 </html>

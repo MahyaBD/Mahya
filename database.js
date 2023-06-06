@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-// const uri = 'mongodb://0.0.0.0:27017/local';
+
 const uri = "mongodb+srv://MahyaBDW:MahyaBDWebsite@cluster0.l8hmdjz.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose.connect(uri, {

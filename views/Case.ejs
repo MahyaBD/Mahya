@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,139 +11,168 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- custom css file link-->
-  <link rel="stylesheet" href="Mahya.css">
+  <link rel="stylesheet" href="/views/Mahya.css">
 
 </head>
 
 <body>
-<!-- Header section starts -->
-<header class="header">
-  <a href="Mahya.html" class="logo"> <i class="fas fa-heartbeat"></i> Mahya </a>
+  <% if (success.code==200) { %>
+    <script>
+      alert("Success: You have booked an appointment");
+    </script>
+    <%}%>
+      <% if (success.code==400) { %>
+        <script>
+          alert("Failed: You failed to book an appointment");
+        </script>
+        <%}%>
+          <!-- Header section starts -->
+          <header class="header">
+            <a href="/" class="logo"> <i class="fas fa-heartbeat"></i> Mahya </a>
 
-  <nav class="navbar">
-    <a href="Mahya.html">Home</a>
-    <a href="#cases">Appointment</a>
-    <a href="#footer">About us</a>
-  </nav>
+            <nav class="navbar">
+              <a href="/">Home</a>
+              <a href="#cases">Appointment</a>
+              <a href="#footer">About us</a>
+            </nav>
 
-  <div id="menu-btn" class="fas fa-bar"></div>
-</header>
-<!-- Header section ends -->
+            <div id="menu-btn" class="fas fa-bar"></div>
+          </header>
+          <!-- Header section ends -->
 
-<div class="container">
-  <section class="home" id="home">
-    
+          <div class="container">
+            <section class="home" id="home">
 
-        
-</section>
-<!-- Home section ends -->
 
-  <!-- Case section starts -->
-  <section class="Cases" id="Case">
-    <h1 class="heading"> Case <span> Details </span></h1>
-    <div class="box-container">
-      <div class="box">
-        <div class="image">
-          <img src="blood-donor.jpg" alt="Blood Donor">
-        </div>
-        <div class="content">
-          <div class="icon">
-            <a href="#"><i class="fas fa-calender"></i>1st may, 2023</a>
-            <a href="#"><i class="fa fa-h-square" aria-hidden="true"></i>Hospital name</a>
+
+            </section>
+            <!-- Home section ends -->
+
+            <!-- Case section starts -->
+            <section class="Cases" id="Case">
+              <h1 class="heading"> Case <span> Details </span></h1>
+              <div class="box-container">
+                <div class="box">
+                  <div class="image">
+                    <img src="/views/blood-donor.jpg" alt="Blood Donor">
+                  </div>
+                  <div class="content">
+                    <div class="icon">
+                      <a href="#"><i class="fas fa-calender"></i>1st may, 2023</a>
+                      <% if(data !=undefined) { %>
+                        <a href="#"><i class="fa fa-h-square" aria-hidden="true"></i>
+                          <%=data.hospital%>
+                        </a>
+                    </div>
+                    <h3>
+                      <%= data.firstName %>
+                        <%= data.lastName %>
+                    </h3>
+                    <h6>
+                      <%= data.bloodGroup %>
+                    </h6>
+                    <p>
+                      <%= data.description %>
+                    </p>
+                    <%} else {%>
+                      <a href="#"><i class="fa fa-h-square" aria-hidden="true"></i>Hospital name</a>
+                  </div>
+                  <h3>Patient name</h3>
+                  <h6>required blood type:</h6>
+                  <p>Case Description</p>
+                  <%}%>
+                    <button class="btn" id="booking-button">Book An Appointment
+                      <span class="fas fa-chevron-right"></span></button>
+                </div>
+              </div>
           </div>
-          <h3>Patient name</h3>
-          <h6>required blood type:</h6>
-          <p>Case Description</p>
-          <button class="btn" id="booking-button">Book An Appointment
-            <span class="fas fa-chevron-right"></span></button>
-        </div>
-      </div>
-    </div>
 
-    <div class="container" id="booking-container">
-      <div class="form_container">
-        <i class="fas fa-times form_close" id="booking-form-close-button"></i>
-        <!-- Booking form-->
-        <div class="form show">
-          <form action="#">
-            <h2>Booking</h2>
-            <div class="input_box">
-              <input type="text" placeholder="Enter your name" required>
-              <i class="fas fa-user email"></i>
+          <div class="container" id="booking-container">
+            <div class="form_container">
+              <i class="fas fa-times form_close" id="booking-form-close-button"></i>
+              <!-- Booking form-->
+              <div class="form show">
+                <form action="/bookAppointment" method="post">
+                  <h2>Booking</h2>
+                  <div class="input_box">
+                    <input type="hidden" name="caseID" value="<%= data._id.toString() %>">
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <i class="fas fa-user email"></i>
+                  </div>
+                  <div class="input_box">
+                    <input type="number" id="age" name="age" placeholder="Enter your age" required min="15" max="80">
+                    <i class="fas fa-sort-numeric-up-alt password"></i>
+                  </div>
+                  <div class="input_box">
+                    <input type="text" id="mobile_number" name="mobile_number" placeholder="Enter your mobile number"
+                      required minlength="10" maxlength="10">
+                    <i class="fas fa-mobile password"></i>
+                  </div>
+                  <div class="input_box">
+                    <label>Blood Type</label>
+                    <select id="blood_type" name="blood_type">
+                      <option>A-</option>
+                      <option>A+</option>
+                      <option>B-</option>
+                      <option>B+</option>
+                      <option>AB-</option>
+                      <option>AB+</option>
+                      <option>O-</option>
+                      <option>O+</option>
+                    </select>
+                  </div>
+                  <div class="input_box">
+                    <label>Date</label>
+                    <input type="date" id="date" name="date">
+                  </div>
+                  <br>
+                  <button class="button">Book Now</button>
+                </form>
+              </div>
             </div>
-            <div class="input_box">
-              <input type="number" placeholder="Enter your age" required
-                     min="15" max="80">
-              <i class="fas fa-sort-numeric-up-alt password"></i>
+          </div>
+          </section>
+          <!-- Case section ends -->
+
+          <!--footer section starts-->
+          <section class="footer" id="footer">
+            <div class="box-container">
+              <div class="box">
+                <h3>Quich links</h3>
+                <a href="Mahya.html"> <i class="fas fa-chevron-right"> </i> Home </a>
+                <a href="#case"> <i class="fas fa-chevron-right"> </i> Appointment </a>
+                <a href="#footer"> <i class="fas fa-chevron-right"> </i> About Us </a>
+              </div>
+
+              <div class="box">
+                <h3>Contact info</h3>
+                <a href="#"> <i class="fas fa-phone"> </i> +123-456-789 </a>
+                <a href="#"> <i class="fas fa-phone"> </i> +111-222-333 </a>
+                <a href="mailto:MahyaBDW@gmail.com"> <i class="fas fa-envelope"> </i> MahyaBDW@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"> </i> Riyadh, Saudi Arabia - 12211 </a>
+              </div>
+
+              <div class="box">
+                <h3>Follow us</h3>
+                <a href="#"> <i class="fa fa-facebook"> </i> facebook </a>
+                <a href="#"> <i class="fa fa-twitter"> </i> twitter </a>
+                <a href="#"> <i class="fa fa-instagram"> </i> instagram </a>
+                <a href="#"> <i class="fa fa-linkedin"> </i> linkedin </a>
+                <a href="#"> <i class="fa fa-pinterest"> </i> pinterest </a>
+              </div>
             </div>
-            <div class="input_box">
-              <input type="text" placeholder="Enter your mobile number"
-                     required minlength="10" maxlength="10">
-              <i class="fas fa-mobile password"></i>
-            </div>
-            <div class="input_box">
-              <label>Blood Type</label>
-              <select>
-                <option>A-</option>
-                <option>A+</option>
-                <option>B-</option>
-                <option>B+</option>
-                <option>AB-</option>
-                <option>AB+</option>
-                <option>O-</option>
-                <option>O+</option>
-              </select>
-            </div>
-            <div class="input_box">
-              <label>Date</label>
-              <input type="date">
-            </div>
 
-            <br>
-            <button class="button">Book Now</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Case section ends -->
+            <div class="credit"> Created by <span> Mehaf Allazzam, Danah Al-Rasheed, Manar Alqabbani and Leen
+                Alaboudi</span> |
+              all rights reserved</div>
+          </section>
+          <!--footer section ends-->
 
-  <!--footer section starts-->
-  <section class="footer" id="footer">
-    <div class="box-container">
-      <div class="box">
-        <h3>Quich links</h3>
-        <a href="Mahya.html"> <i class="fas fa-chevron-right"> </i> Home </a>
-        <a href="#case"> <i class="fas fa-chevron-right"> </i> Appointment </a>
-        <a href="#footer"> <i class="fas fa-chevron-right"> </i> About Us </a>
-      </div>
+          </div>
 
-      <div class="box">
-        <h3>Contact info</h3>
-        <a href="#"> <i class="fas fa-phone"> </i> +123-456-789 </a>
-        <a href="#"> <i class="fas fa-phone"> </i> +111-222-333 </a>
-        <a href="mailto:MahyaBDW@gmail.com"> <i class="fas fa-envelope"> </i> MahyaBDW@gmail.com </a>
-        <a href="#"> <i class="fas fa-map-marker-alt"> </i> Riyadh, Saudi Arabia - 12211 </a>
-      </div>
-
-      <div class="box">
-        <h3>Follow us</h3>
-        <a href="#"> <i class="fa fa-facebook" > </i> facebook </a>
-        <a href="#"> <i class="fa fa-twitter" > </i> twitter </a>
-        <a href="#"> <i class="fa fa-instagram"> </i> instagram </a>
-        <a href="#"> <i class="fa fa-linkedin"> </i> linkedin </a>
-        <a href="#"> <i class="fa fa-pinterest"> </i> pinterest </a>
-      </div>
-    </div>
-
-    <div class="credit"> Created by <span> Mehaf Allazzam, Danah Al-Rasheed, Manar Alqabbani and Leen Alaboudi</span> | all rights reserved</div>
-  </section>
-  <!--footer section ends-->
-
-</div>
-
-<!-- custom js file link -->
-<script src="Cases.js"></script>
+          <!-- custom js file link -->
+          <script src="/views/Cases.js"></script>
 
 </body>
+
 </html>

@@ -1,15 +1,16 @@
 const db = require("./database");
- 
-var mongoose = require('mongoose');
- 
-var appSchema = new mongoose.Schema({
-    name: String,
-    age: String,
-    mobile: String,
-    bloodGroup: String,
-    date: String,
-    userName: String
+
+var mongoose = require("mongoose");
+
+var appointmentSchema = new mongoose.Schema({
+  name: String,
+  age: String,
+  mobile: String,
+  bloodGroup: String,
+  date: String,
+  username: String,
+  caseID: { type: mongoose.Schema.Types.ObjectId, ref: "Case" },
 });
- 
-//Case is a model which has a schema appSchema
-module.exports = new mongoose.model('Appointment', appSchema);
+
+//User is a model which has a schema userSchema
+module.exports = new mongoose.model("Appointment", appointmentSchema);
