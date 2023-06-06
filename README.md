@@ -29,10 +29,10 @@ then these Steps to open the website in localhost
 4. Open browser and type http://localhost:3000
 ```
 
-
-## Developers 
+## Authors 
 its group work by 
-@MehafAllazzam
-@Manarr12
-@LeenOb
-@DanaDhafer
+.@Manarr12 
+.@MehafAllazzam
+.Manarr12
+.@LeenOb
+.@DanaDhafer
