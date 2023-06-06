@@ -29,10 +29,9 @@ then these Steps to open the website in localhost
 4. Open browser and type http://localhost:3000
 ```
 
-## Authors 
-its group work by 
-.@Manarr12 
-.@MehafAllazzam
-.Manarr12
-.@LeenOb
-.@DanaDhafer
+## Developers 
+its group work 
+- [@MehafAllazzam](https://github.com/MehafAllazzam)
+- [@Manarr12](https://github.com/Manarr12)
+- [@LeenOb](https://github.com/LeenOb)
+- [@DanaDhafer](https://github.com/DanaDhafer)
